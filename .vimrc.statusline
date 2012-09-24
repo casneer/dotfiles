@@ -1,0 +1,2 @@
+set laststatus=2	" 常にステータスラインを表示
+set ruler			" カーソル位置表示
