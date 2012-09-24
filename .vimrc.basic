@@ -1,0 +1,38 @@
+let mapleader = "," 			" キーマップリーダー
+set history=100					" コマンド履歴
+set textwidth=0					" 自動折り返しOFF
+set showcmd                     " コマンドをステータス行に表示
+set showmode                    " 現在のモードを表示
+set shiftwidth=4                " cindentやシフトオペレータのインデント幅
+set tabstop=4                   " タブ幅
+set softtabstop=0               " tabstop使うので0
+set autoread					" 自動再読み込み
+
+" ビープを黙らせる魔法
+set vb t_vb=          
+
+" バックスペースでなんでも消したい
+set backspace=indent,eol,start   
+
+" 整形オプション，マルチバイト系を追加
+set formatoptions=lmoq
+
+" バッファで開いてるファイルパスをExplore時の初期ディレクトリに
+set browsedir=buffer
+
+" カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
+" OSのクリップボードを使用する
+set clipboard+=unnamed
+
+" ターミナルでマウスを使用できるようにする
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
+
+" 各ヘルプファイル位置
+set helpfile=$VIMRUNTIME/doc/help.txt
+
+" ファイルタイプ判定をon
+filetype plugin on
