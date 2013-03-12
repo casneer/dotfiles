@@ -5,3 +5,5 @@ source ~/dotfiles/.vimrc.bundle
 source ~/dotfiles/.vimrc.basic
 " ステータス行の設定
 source ~/dotfiles/.vimrc.statusline
+" plugin固有の設定
+source ~/dotfiles/.vimrc.plugins_config

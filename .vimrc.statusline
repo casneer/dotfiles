@@ -1,2 +1,4 @@
 set laststatus=2	" 常にステータスラインを表示
 set ruler			" カーソル位置表示
+let g:Powerline_symbols = 'fancy'
+set t_Co=256

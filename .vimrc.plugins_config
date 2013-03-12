@@ -1,0 +1,113 @@
+"------------------------------------
+" unite.vim
+"------------------------------------
+" The prefix key.
+nnoremap [unite] <Nop>
+nmap f [unite]
+
+nnoremap [unite]u :<C-u>Unite -no-split<Space>
+
+" 基本セット
+nnoremap <silent> [unite]u :<C-u>Unite -no-split buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
+" ファイル一覧
+nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files file<CR>
+" バッファ一覧
+nnoremap <silent> [unite]b :<C-u>Unite -no-split buffer<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> [unite]m :<C-u>Unite -no-split file_mru<CR>
+" 現在のバッファのカレントディレクトリからファイル一覧
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
+
+let g:unite_source_file_mru_limit = 200
+
+"------------------------------------
+" operator-camelize.vim
+"------------------------------------
+" camel-caseへの変換
+map <Leader>u <Plug>(operator-camelize)
+map <Leader>U <Plug>(operator-decamelize)
+
+"------------------------------------
+" Pydiction
+"------------------------------------
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+
+"------------------------------------
+" Syntastic
+"------------------------------------
+" エラー行をsignで表示
+let g:syntastic_enable_signs = 1
+" 可能ならhighligt表示
+let g:syntastic_enable_highlighting = 1
+
+"------------------------------------
+" BufExplorer
+"------------------------------------
+"<Leader>l<Space>でBufferList
+nnoremap <Leader>l<Space> :BufExplorer<CR>
+
+"------------------------------------
+" VTreeExplorer
+"------------------------------------
+let g:treeExplVertical=1
+"<Leader>t<Space>でディレクトリツリー表示
+noremap <Leader>t<Space> :VSTreeExplore<CR>
+"分割したウィンドウのサイズ
+let g:treeExplWinSize=30
+
+"------------------------------------
+" DumbBuf.vim
+"------------------------------------
+"<Leader>b<Space>でBufferList
+let dumbbuf_hotkey = '<Leader>b<Space>'
+let dumbbuf_mappings = {
+    \ 'n': {
+        \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
+    \}
+\}
+let dumbbuf_single_key = 1
+let dumbbuf_updatetime = 1 " &updatetimeの最小値
+let dumbbuf_wrap_cursor = 0
+let dumbbuf_remove_marked_when_close = 1
+
+"------------------------------------
+" vim-indent-guides
+"------------------------------------
+nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 4
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+if 'dark' == &background
+    hi IndentGuidesOdd ctermbg=black
+    hi IndentGuidesEven ctermbg=darkgrey
+else
+    hi IndentGuidesOdd ctermbg=white
+    hi IndentGuidesEven ctermbg=lightgrey
+endif
+
+"------------------------------------
+" camelcasemotion.vim
+"------------------------------------
+
+" <Shift-wbe>でCameCaseやsnake_case単位での単語移動
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+" text-objectで使用できるように
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+"------------------------------------
+" errormarker.vim
+"------------------------------------
+" デフォルトのキーマップ(,cc)を無効化、,ecに
+let g:errormarker_disablemappings = 1
+nmap <silent> <unique> <Leader>ec :ErrorAtCursor<CR>
